@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const chalk = require('chalk');
+var readlinesync=require('readline-sync');
+var userName=readlinesync.question(chalk.blue.bold.italic('Enter Your Name '));
+console.log("");
+console.log(chalk.yellowBright.bold('welcome '+ userName));
+console.log("");
+console.log(chalk.white("-------------------------------------------------"));
+console.log("");
+console.log(chalk.blue.bold(" welcome to Do You Know Me Quiz."));
+console.log("");
+console.log("-------------------------------------------------");
+console.log("");
+var score=0;
+function play(question , answer)
+{// console.log("you are wrong your score is" ,score)
+ //console.log(question);
+ var userAnswer=readlinesync.question(chalk.italic.magenta.bold(question));
+  if(userAnswer.toUpperCase()===answer.toUpperCase())
+  {
+    score=score+2;
+    console.log("");
+    console.log(chalk.green.bold("you are right , your score is") , chalk.white.bold(score));
+    console.log("");
+  }
+  else
+  { 
+    console.log("");
+    console.log(chalk.bold.yellow("you are wrong , your score is") , chalk.bold(score))
+    console.log("");
+    
+  }
+  //console.log("-------------------------------------------------");
+  console.log("");
+}
+var questions = [ {question:"Q1 Where Do I Live?",
+               answer:"Indore"} ,
+
+               {question:"Q2 What is My Favorite Color?",
+                  answer:"Yellow"},
+
+               {question:"Q3 What is My Favorite Food?",
+                 answer:"Sweets"},
+
+               {question:"Q4 What is My Favorite Hobby?",
+                  answer:"Listening Music"},
+
+               {question:"Q5 Who is My Favorite SuperHero?",
+                 answer:"Krishna"} ];
+
+ for(var i=0;i<questions.length;i++)
+   { 
+     var currentQuestion=questions[i];
+     //console.log(currentQuestion.question);
+     play(currentQuestion.question, currentQuestion.answer)
+  }
+console.log(chalk.blue.bold.bgWhite('THANK YOU FOR PLAYING.'));
+
+    </script>
+</body>
+</html>
